@@ -1,0 +1,223 @@
+# Backend API Endpoints and Frontend Integration Guide
+
+---
+
+## Auth APIs
+
+POST http://localhost:3000/api/auth/signup
+- Description: User registration
+- Frontend: Signup page (register form)
+
+POST http://localhost:3000/api/auth/login
+- Description: User login
+- Frontend: Login page (login form, auth context)
+
+---
+
+## User Profile APIs
+
+GET http://localhost:3000/api/client/me
+- Description: Get current user profile
+- Frontend: Profile context, Account/Profile page, dashboard user info
+
+PUT http://localhost:3000/api/client/me
+- Description: Update user profile
+- Frontend: Profile edit form, Account/Profile page
+
+---
+
+## Course APIs
+
+POST http://localhost:3000/api/courses
+- Description: Create a new course
+- Frontend: Instructor dashboard, course creation form
+
+PATCH http://localhost:3000/api/courses/:id
+- Description: Update course details
+- Frontend: Course edit page (instructor)
+
+DELETE http://localhost:3000/api/courses/:id
+- Description: Archive (soft delete) a course
+- Frontend: Instructor dashboard, course management
+
+GET http://localhost:3000/api/courses/:id
+- Description: Get single course details
+- Frontend: Course details page, course preview
+
+GET http://localhost:3000/api/courses
+- Description: List all courses (with admin/instructor filtering)
+- Frontend: Explore/browse courses, instructor dashboard
+
+POST http://localhost:3000/api/courses/admin/courses/:id/actions/approve
+- Description: Approve a course (admin)
+- Frontend: Admin dashboard, course moderation
+
+POST http://localhost:3000/api/courses/admin/courses/:id/actions/reject
+- Description: Reject a course (admin)
+- Frontend: Admin dashboard, course moderation
+
+POST http://localhost:3000/api/courses/:id/instructors
+- Description: Assign instructors to a course
+- Frontend: Course management (instructor/admin)
+
+DELETE http://localhost:3000/api/courses/:id/instructors/:instructorId
+- Description: Unassign instructor from course
+- Frontend: Course management (instructor/admin)
+
+GET http://localhost:3000/api/courses/:id/instructors
+- Description: List all instructors for a course
+- Frontend: Course details, instructor management
+
+POST http://localhost:3000/api/courses/:id/bundles
+- Description: Attach bundles to a course
+- Frontend: Course bundle management
+
+DELETE http://localhost:3000/api/courses/:id/bundles/:bundleId
+- Description: Detach bundle from course
+- Frontend: Course bundle management
+
+---
+
+## School APIs
+
+POST http://localhost:3000/api/schools
+- Description: Create a school
+- Frontend: Admin/instructor school management
+
+GET http://localhost:3000/api/schools
+- Description: List all schools
+- Frontend: School selection, admin dashboard
+
+GET http://localhost:3000/api/schools/:id
+- Description: Get school by ID
+- Frontend: School details page
+
+PATCH http://localhost:3000/api/schools/:id
+- Description: Update school
+- Frontend: School edit form
+
+DELETE http://localhost:3000/api/schools/:id
+- Description: Delete school
+- Frontend: School management
+
+---
+
+## Enrollment APIs
+
+POST http://localhost:3000/api/client/enrollments
+- Description: Enroll user in a course
+- Frontend: Course details/enroll button
+
+GET http://localhost:3000/api/client/enrollments
+- Description: Get user enrollment status
+- Frontend: My courses, course access check
+
+---
+
+## Financial/Transaction APIs
+
+POST http://localhost:3000/api/client/transactions
+- Description: Create a transaction (purchase)
+- Frontend: Checkout/payment page
+
+GET http://localhost:3000/api/client/transactions
+- Description: Get user transactions
+- Frontend: User billing/history page
+
+---
+
+## User Subscription APIs
+
+POST http://localhost:3000/api/client/user-subscriptions
+- Description: Create a user subscription
+- Frontend: Subscription/plan purchase page
+
+GET http://localhost:3000/api/client/user-subscriptions
+- Description: Get user subscriptions
+- Frontend: Subscription management page
+
+---
+
+## Coupon APIs
+
+(If implemented, add endpoints here)
+
+---
+
+## Payout APIs
+
+(If implemented, add endpoints here)
+
+---
+
+## Community APIs
+
+POST http://localhost:3000/api/client/community-posts
+- Description: Create a community post
+- Frontend: Community/forum post form
+
+GET http://localhost:3000/api/client/community-posts/:spaceId
+- Description: List posts in a space
+- Frontend: Community/forum page
+
+POST http://localhost:3000/api/client/reviews
+- Description: Submit a review
+- Frontend: Course/product review form
+
+GET http://localhost:3000/api/client/reviews/:productId
+- Description: List reviews for a product
+- Frontend: Course/product details page
+
+---
+
+## Team Plan APIs
+
+POST http://localhost:3000/api/client/team-plans
+- Description: Create a team plan
+- Frontend: Team plan creation page
+
+GET http://localhost:3000/api/client/team-plans
+- Description: List team plans
+- Frontend: Team management page
+
+---
+
+## Notification APIs
+
+GET http://localhost:3000/api/client/notifications
+- Description: List user notifications
+- Frontend: Notification bell, user dashboard
+
+PATCH http://localhost:3000/api/client/notifications/:id/read
+- Description: Mark notification as read
+- Frontend: Notification interaction
+
+---
+
+## Logs & Admin APIs
+
+GET http://localhost:3000/api/admin/action-logs
+- Description: List admin action logs
+- Frontend: Admin dashboard (logs section)
+
+GET http://localhost:3000/api/admin/application-errors
+- Description: List application errors
+- Frontend: Admin dashboard (error logs)
+
+---
+
+## Settings APIs
+
+(If implemented, add endpoints here)
+
+---
+
+## Webhook APIs
+
+(If implemented, add endpoints here)
+
+---
+
+# Note
+- For any endpoint marked "If implemented, add endpoints here", check your backend for additional routes or add them as you expand features.
+- For each API, match the frontend integration point as described, or update as your UI evolves.
